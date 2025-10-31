@@ -1,179 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilates Studio</title>
-    <link rel="stylesheet" href="gpttest2.CSS">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f1f1;
-            margin: 0;
-            padding: 0;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilates Studio</title>
+  <link rel="stylesheet" href="gpttest2.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ece8da;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* Navbar styles */
-        nav {
-            background-color: #4CAF50;
-            padding: 15px;
-            text-align: center;
-        }
+    /* Navbar */
+    nav {
+      background-color: #ceadbe;
+      padding: 15px;
+      text-align: center;
+    }
 
-        nav a {
-            color: rgb(248, 242, 242);
-            text-decoration: none;
-            padding: 14px 20px;
-            font-size: 18px;
-        }
+    nav a {
+      color: #ece8da;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-size: 18px;
+    }
 
-        nav a:hover {
-            background-color: #45a049;
-        }
+    nav a:hover {
+      background-color: #e3daec;
+    }
 
-        /* Header section */
-        header {
-            text-align: center;
-            padding: 50px;
-            background: url('https://flowpilatesny.com/wp-content/uploads/2019/11/Hero-Image3.jpg') no-repeat center center/cover;
-            color: rgb(17, 14, 14);
-        }
+    /* Header */
+    header {
+      text-align: center;
+      padding: 50px;
+      background-color: #ceadbe;
+      color: black;
+    }
 
-        header h1 {
-            font-size: 48px;
-        }
+    header h1 {
+      font-size: 48px;
+    }
 
-        /* Main content */
-        .container {
-            padding: 20px;
-        }
+    /* Main content */
+    .container {
+      padding: 20px;
+    }
 
-        .section {
-            margin: 20px 0;
-        }
+    .section {
+      margin: 20px 0;
+    }
 
-        .section h2 {
-            color: #4CAF50;
-            border-bottom: 2px solid #4CAF50;
-            padding-bottom: 10px;
-        }
+    .section h2 {
+      color: #000000;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 10px;
+    }
 
-        .class-list, .instructors {
-            display: flex;
-            gap: 20px;
-        }
+    .class-list, .instructors {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
 
-        .class-list div, .instructors div {
-            background-color: #e0e0e0;
-            padding: 15px;
-            border-radius: 10px;
-        }
+    .class-list div, .instructors div {
+      background-color: #e3daec;
+      padding: 15px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 250px;
+    }
 
-        /* Contact form */
-        .contact-form {
-            max-width: 600px;
-            margin: auto;
-            background: #f3f0f0;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px 0px #aaaaaa;
-        }
+    /* Contact form */
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background: #ece8da;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px #aaaaaa;
+    }
 
-        .contact-form input, .contact-form textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #dddddd;
-            border-radius: 5px;
-        }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+    }
 
-        .contact-form button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    .contact-form button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-        .contact-form button:hover {
-            background-color: #45a049;
-        }
-    </style>
+    .contact-form button:hover {
+      background-color: #45a049;
+    }
+
+    /* Calendar styling */
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      width: 350px;
+      margin: 20px auto;
+    }
+
+    .day {
+      padding: 15px;
+      background: #fff;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .day:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    .selected {
+      background: #28a745 !important;
+      color: white;
+    }
+
+    .form-section {
+      margin-top: 20px;
+      display: none;
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .confirm {
+      margin-top: 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .confirm:hover {
+      background: #0056b3;
+    }
+
+    .confirmation-message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+      text-align: center;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 </head>
+
 <body>
-    <!-- Navigation bar -->
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#classes">Classes</a>
-        <a href="#instructors">Instructor</a>
-        <a href="#contact">Contact</a>
-    </nav>
+  <!-- Navigation bar -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#classes">Classes</a>
+    <a href="#instructors">Instructor</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-    <!-- Header Section -->
-    <header id="home">
-        <h1>Welcome to Adaptablemovements</h1>
+  <!-- Header -->
+  <header id="home">
+    <h1>Welcome to Threshold</h1>
+    <b>
+    As your coach at Threshold, I’m here to accommodate every body type, every experience level,
+and every type of learner. We take a brain-based approach to Fitness and Health Coaching. We
+work from the inside out, focusing on cranial nerve function, proprioception, and how your
+nervous system responds to physical and emotional tasks. This approach allows us to truly
+accommodate all people, including those with disabilities and chronic pain.
+As a Health Coach, my goal is not to make you replicate my health routine, but instead to give
+you the tools you need to be able to understand your health, advocate for yourself, and guide
+you to the life that YOU want to live.
+-Anna Bolton founder/CEO
+Why Health Coaching?
+As your coach, I’m here as an un-biased voice to help you assess your health, figure out
+attainable goals, teach you how to advocate for yourself, and what questions you should be
+asking when making decisions about your health. I’ll also work with you to find what remedies
+will help you raise your physical and mental thresholds and teach you how, and when to
+incorporate them in your day-to-day life.
+Why Movement?
+While the movement I teach is rooted in the traditional Pilates method, my teaching approach is
+influenced by Neuroanatomy. Which means instead of cueing your body, I cue your brain. Often,
+fitness professionals will try to treat muscle and joint pain/dysfunction without assessing the
+“Why?” behind it. It’s like putting the cart before the horse! Our nervousystem controls all
+movement and all bodily functions. By assessing the nervousystem first I’m able to get a more
+clear picture of what needs to be addressed, which leads to faster results, and equips you with
+the knowledge you need to be able to move with confidence.
+Anna’s Qualifications
+-Fully Certified Level 2 STOTT Pilates Instructor
+-The Neuro Studio Pilates For Neurological Conditions
+-The Neuro Studio Advanced Neuro Techniques
+-Pilates for Injuries and Special Populations
+-Pilates for Golf
+-Pilates for Athletic Conditioning
+      <br><br>
+      -Anna Bolton, Founder/CEO
+    </b>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  (function(){
+      emailjs.init("67jp-54KduZJyCrLT");
+  })();
+</script>
 
-        <b>your core, increase flexibility, and find balance.</b>
-    </header>
+  </header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <!-- Classes Section -->
-        <div id="classes" class="section">
-            <h2>Our Classes</h2>
-            <div class="class-list">
-                <div>
-                    <h3>Beginner Class</h3>
-                    <p>Perfect for those new to Pilates. Learn the basics and build a strong foundation.</p>
-                    <p><strong>Time:</strong> Mon & Wed, 10:00 AM</p>
-                </div>
-                <div>
-                    <h3>Intermediate Class</h3>
-                    <p>Challenge yourself with more complex exercises and techniques.</p>
-                    <p><strong>Time:</strong> Tue & Thu, 2:00 PM</p>
-                </div>
-                <div>
-                    <h3>Advanced Class</h3>
-                    <p>Push your limits with advanced routines for experienced participants.</p>
-                    <p><strong>Time:</strong> Fri, 4:00 PM</p>
-                </div>
-            </div>
+  <!-- Main Content -->
+  <div class="container">
+    <!-- Classes -->
+    <div id="classes" class="section">
+      <h2>Our Classes</h2>
+      <div class="class-list">
+        <div>
+          <h3>Beginner Class</h3>
+          <p>Perfect for those new to Pilates.</p>
+          <p><strong>Time:</strong> Mon & Wed, 10:00 AM</p>
         </div>
-
-        <!-- Instructors Section -->
-        <div id="instructors" class="section">
-            <h2>Meet Our Instructors</h2>
-            <div class="instructors">
-                <div>
-                    <h3>Anna Miller</h3>
-                    <p>Anna has over 10 years of experience in teaching Pilates. She focuses on mindful movements and form.</p>
-                </div>
-                <div>
-                    <h3>John doe</h3>
-                    <p>John is an expert in Pilates and <b>NOT</b> yoga, helping clients achieve optimal strength and flexibility.</p>
-                </div>
-            </div>
+        <div>
+          <h3>Intermediate Class</h3>
+          <p>Challenge yourself with more complex exercises.</p>
+          <p><strong>Time:</strong> Tue & Thu, 2:00 PM</p>
         </div>
-
-        <!-- Contact Section -->
-        <div id="contact" class="section">
-            <h2>Contact Us</h2>
-            <div class="contact-form">
-                <form>
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" name="name" required>
-
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required>
-
-                    <label for="message">Message:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-
-                    <button type="submit">Send Message</button>
-                </form>
-            </div>
+        <div>
+          <h3>Advanced Class</h3>
+          <p>Push your limits with advanced routines.</p>
+          <p><strong>Time:</strong> Fri, 4:00 PM</p>
         </div>
+      </div>
     </div>
+
+    <!-- Instructors -->
+    <div id="instructors" class="section">
+      <h2>Meet Our Instructors</h2>
+      <div class="instructors">
+        <div>
+          <h3>Anna Miller</h3>
+          <p>Over 10 years of experience focusing on mindful movement and form.</p>
+        </div>
+        <div>
+          <h3>John Doe</h3>
+          <p>Expert in Pilates (not yoga), helping clients achieve strength and flexibility.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact & Calendar -->
+    <div id="contact" class="section">
+      <h2>Book an Appointment</h2>
+
+      <div id="calendar" class="calendar"></div>
+
+      <div class="form-section" id="formSection">
+        <p><strong>Selected date:</strong> <span id="selectedDateText"></span></p>
+
+        <label for="timeInput">Select a time:</label><br>
+        <input type="time" id="timeInput" required><br>
+
+        <label for="nameInput">Full Name:</label><br>
+        <input type="text" id="nameInput" placeholder="John Doe" required><br>
+
+        <label for="phoneInput">Phone Number:</label><br>
+        <input type="tel" id="phoneInput" placeholder="555-123-4567" required><br>
+
+        <label for="emailInput">Email:</label><br>
+        <input type="email" id="emailInput" placeholder="you@example.com" required><br>
+
+        <button class="confirm" id="confirmBtn">Confirm Appointment</button>
+      </div>
+
+      <div class="confirmation-message" id="confirmation"></div>
+    </div>
+  </div>
+
+  <script>
+    const calendar = document.getElementById("calendar");
+    const formSection = document.getElementById("formSection");
+    const selectedDateText = document.getElementById("selectedDateText");
+    const confirmBtn = document.getElementById("confirmBtn");
+    const confirmation = document.getElementById("confirmation");
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth();
+    const monthStart = new Date(year, month, 1);
+    const monthEnd = new Date(year, month + 1, 0);
+    const daysInMonth = monthEnd.getDate();
+
+    let selectedDate = null;
+
+    // Create calendar days
+    for (let i = 1; i <= daysInMonth; i++) {
+      const day = document.createElement("div");
+      day.classList.add("day");
+      day.textContent = i;
+      day.addEventListener("click", () => {
+        document.querySelectorAll(".day").forEach(d => d.classList.remove("selected"));
+        day.classList.add("selected");
+        selectedDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(i).padStart(2, "0")}`;
+        selectedDateText.textContent = selectedDate;
+        formSection.style.display = "block";
+        confirmation.textContent = "";
+      });
+      calendar.appendChild(day);
+    }
+
+   confirmBtn.addEventListener("click", () => {
+  const time = document.getElementById("timeInput").value;
+  const name = document.getElementById("nameInput").value.trim();
+  const phone = document.getElementById("phoneInput").value.trim();
+  const email = document.getElementById("emailInput").value.trim();
+
+  if (!selectedDate || !time || !name || !phone || !email) {
+    alert("Please fill out all fields before confirming.");
+    return;
+  }
+
+  // Data to send to EmailJS
+  const templateParams = {
+    from_name: name,
+    from_phone: phone,
+    from_email: email,
+    date: selectedDate,
+    time: time
+  };
+
+  emailjs.send("service_xkx90fb", "annasbooking123@gmail.com", templateParams)
+    .then(() => {
+      confirmation.innerHTML = `
+        ✅ <strong>Appointment Confirmed!</strong><br>
+        📅 Date: ${selectedDate}<br>
+        ⏰ Time: ${time}<br>
+        👤 Name: ${name}<br>
+        📞 Phone: ${phone}<br>
+        📧 Email: ${email}<br><br>
+        ✉️ <i>Email sent to annasbooking123@gmail.com</i>
+      `;
+      formSection.style.display = "none";
+    }, (error) => {
+      console.error("EmailJS Error:", error);
+      alert("Something went wrong sending the email. Please try again later.");
+    });
+});
+
+</script>
+
+  </script>
+<script>
+  // your JavaScript code goes here
+  console.log("JavaScript is working!");
+</script>
+</body>
+</html>
+
 </body>
 </html>
