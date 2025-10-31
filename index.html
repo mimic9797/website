@@ -1,13 +1,233 @@
-<!-- Load EmailJS library -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pilates Studio</title>
+  <link rel="stylesheet" href="gpttest2.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ece8da;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Navbar */
+    nav {
+      background-color: #ceadbe;
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #ece8da;
+      text-decoration: none;
+      padding: 14px 20px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      background-color: #e3daec;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 50px;
+      background-color: #ceadbe;
+      color: black;
+    }
+
+    header h1 {
+      font-size: 48px;
+    }
+
+    /* Main content */
+    .container {
+      padding: 20px;
+    }
+
+    .section {
+      margin: 20px 0;
+    }
+
+    .section h2 {
+      color: #000000;
+      border-bottom: 2px solid #000000;
+      padding-bottom: 10px;
+    }
+
+    .class-list, .instructors {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .class-list div, .instructors div {
+      background-color: #e3daec;
+      padding: 15px;
+      border-radius: 10px;
+      flex: 1;
+      min-width: 250px;
+    }
+
+    /* Contact form */
+    .contact-form {
+      max-width: 600px;
+      margin: auto;
+      background: #ece8da;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 10px 0px #aaaaaa;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #dddddd;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      background-color: #4caf50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .contact-form button:hover {
+      background-color: #45a049;
+    }
+
+    /* Calendar styling */
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+      width: 350px;
+      margin: 20px auto;
+    }
+
+    .day {
+      padding: 15px;
+      background: #fff;
+      text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .day:hover {
+      background: #007bff;
+      color: white;
+    }
+
+    .selected {
+      background: #28a745 !important;
+      color: white;
+    }
+
+    .form-section {
+      margin-top: 20px;
+      display: none;
+      text-align: center;
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .confirm {
+      margin-top: 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .confirm:hover {
+      background: #0056b3;
+    }
+
+    .confirmation-message {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #444;
+      text-align: center;
+      max-width: 350px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#classes">Classes</a>
+    <a href="#instructors">Instructor</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- Header -->
+  <header id="home">
+    <h1>Welcome to Threshold</h1>
+    <b>
+    As your coach at Threshold, I’m here to accommodate every body type, every experience level,
+and every type of learner. We take a brain-based approach to Fitness and Health Coaching. We
+work from the inside out, focusing on cranial nerve function, proprioception, and how your
+nervous system responds to physical and emotional tasks. This approach allows us to truly
+accommodate all people, including those with disabilities and chronic pain.
+As a Health Coach, my goal is not to make you replicate my health routine, but instead to give
+you the tools you need to be able to understand your health, advocate for yourself, and guide
+you to the life that YOU want to live.
+-Anna Bolton founder/CEO
+Why Health Coaching?
+As your coach, I’m here as an un-biased voice to help you assess your health, figure out
+attainable goals, teach you how to advocate for yourself, and what questions you should be
+asking when making decisions about your health. I’ll also work with you to find what remedies
+will help you raise your physical and mental thresholds and teach you how, and when to
+incorporate them in your day-to-day life.
+Why Movement?
+While the movement I teach is rooted in the traditional Pilates method, my teaching approach is
+influenced by Neuroanatomy. Which means instead of cueing your body, I cue your brain. Often,
+fitness professionals will try to treat muscle and joint pain/dysfunction without assessing the
+“Why?” behind it. It’s like putting the cart before the horse! Our nervousystem controls all
+movement and all bodily functions. By assessing the nervousystem first I’m able to get a more
+clear picture of what needs to be addressed, which leads to faster results, and equips you with
+the knowledge you need to be able to move with confidence.
+Anna’s Qualifications
+-Fully Certified Level 2 STOTT Pilates Instructor
+-The Neuro Studio Pilates For Neurological Conditions
+-The Neuro Studio Advanced Neuro Techniques
+-Pilates for Injuries and Special Populations
+-Pilates for Golf
+-Pilates for Athletic Conditioning
+      <br><br>
+      -Anna Bolton, Founder/CEO
+    </b>
+   <!-- ✅ Load EmailJS library -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
 <script>
-  // Initialize EmailJS
-  (function() {
-    emailjs.init("67jp-54KduZJyCrLT"); // ✅ your public key
+  // ✅ Initialize EmailJS
+  (function(){
+    emailjs.init("67jp-54KduZJyCrLT"); // your public key
   })();
 
-  // Calendar + form logic
   const calendar = document.getElementById("calendar");
   const formSection = document.getElementById("formSection");
   const selectedDateText = document.getElementById("selectedDateText");
@@ -22,7 +242,7 @@
 
   let selectedDate = null;
 
-  // Create calendar days
+  // ✅ Build calendar
   for (let i = 1; i <= daysInMonth; i++) {
     const day = document.createElement("div");
     day.classList.add("day");
@@ -38,6 +258,7 @@
     calendar.appendChild(day);
   }
 
+  // ✅ Confirm button sends email
   confirmBtn.addEventListener("click", () => {
     const time = document.getElementById("timeInput").value;
     const name = document.getElementById("nameInput").value.trim();
@@ -69,11 +290,15 @@
           ✉️ <i>Email sent to annasbooking123@gmail.com</i>
         `;
         formSection.style.display = "none";
-      }, (error) => {
+      })
+      .catch(error => {
         console.error("EmailJS Error:", error);
         alert("Something went wrong sending the email. Please try again later.");
       });
   });
+
+  console.log("✅ JavaScript loaded successfully!");
 </script>
+
 </body>
 </html>
